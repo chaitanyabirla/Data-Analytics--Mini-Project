@@ -1,42 +1,41 @@
 import random
 import csv
 
-#def generate_student_id():
- #   return range(100, 999)
+def generate_guide_id():
+    teacher_ids = []
+    for i in range(2201,2250):
+     teacher_ids.append(i)
 
-#student_ids = [generate_student_id() for i in range(500)]
-
-#with open('student_ids.csv', mode='w', newline='') as file:
-#    writer = csv.writer(file)
-#    writer.writerow(['Student ID'])
-#    for id in student_ids:
-#        writer.writerow([id])
-
-
-#def generate_teacher_id():
-#    x = random.randint(2201,2250)
-#    y=''
-#    if x<10:
-#        y = "0" + str(x)
-#    else:
-#        y = str(x)
-#    return y
-
-for i in range(2201,2250):
-    teacher_ids=[].append 
-with open('guide_UserId.csv', mode='w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(['Student ID'])
-    for id in teacher_ids:
+    with open('guide_UserId.csv', mode='w', newline='') as file:
+     writer = csv.writer(file)
+     writer.writerow(['Guide ID'])
+     for id in teacher_ids:
         writer.writerow([id])
+   
 
 
 def generate_admin_id():
-    x = random.randint(1,5)
-    y=''
-    if x<=5:
-        y = "0" + str(x)
-    return y
+    admin_ids = []
+    for i in range(1,10):
+     admin_ids.append(i)
 
+    with open('admin_UserId.csv', mode='w', newline='') as file:
+     writer = csv.writer(file)
+     writer.writerow(['Admin ID'])
+     for id in admin_ids:
+        writer.writerow([id])
 
+def generate_student_id():
+    student_id_ = []
+    for i in range(2211200,2211700):
+     student_id_.append(i)
 
+    with open('student_UserId.csv', mode='w', newline='') as file:
+     writer = csv.writer(file)
+     writer.writerow(['Student ID'])
+     for id in student_id_:
+        writer.writerow([id])
+
+generate_admin_id()
+generate_guide_id()
+generate_student_id()
