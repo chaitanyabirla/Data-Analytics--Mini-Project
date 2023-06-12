@@ -1,4 +1,4 @@
-import random
+import pandas
 import csv
 
 def generate_guide_id():
