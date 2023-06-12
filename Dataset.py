@@ -35,7 +35,8 @@ def generate_student_id():
      writer.writerow(['Student ID'])
      for id in student_id_:
         writer.writerow([id])
-
+'''
 generate_admin_id()
 generate_guide_id()
 generate_student_id()
+'''
