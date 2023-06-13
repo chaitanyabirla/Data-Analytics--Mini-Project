@@ -45,7 +45,7 @@ print(generate_student_id())
 
 import pandas as pd
 
-def generate_student_id_modified():
+def generate_student_data_modified():
     student_list = []
     for i in range(2211200, 2211700):
         j = [i, pd.NA]

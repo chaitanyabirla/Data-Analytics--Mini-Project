@@ -1,6 +1,6 @@
 import re
 import login
-
+import registration_detail
 print("Welcome to Summer Internship Portal\nPlease log in")
 
 print()
@@ -12,7 +12,7 @@ status = True
 if re.match(r"^(STUD)", user):
     while status == True:
         if login.student_login(user[4:]):
-            registration() 
+            registration_detail.student_registration() 
             status = False
         else:
             status = True
@@ -20,7 +20,7 @@ if re.match(r"^(STUD)", user):
 elif re.match(r"^(IG)", user):
     while status == True:
         if login.guide_login(user[2:]):
-            registration() 
+            registration_detail.Guide_registration() 
             status = False
         else:
             status = True
@@ -28,7 +28,7 @@ elif re.match(r"^(IG)", user):
 elif re.match(r"^(A)", user):
     while status == True:
         if login.admin_login(user[2:]):
-            registration() 
+            registration_detail.Admin_registration() 
             status = False
         else:
             status = True

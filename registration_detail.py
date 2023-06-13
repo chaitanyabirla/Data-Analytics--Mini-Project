@@ -28,7 +28,7 @@ def student_registration():
     year = int(input("Enter the year you are studying in: "))
     course = input("Enter your class\n(For e.g: 2LLB-A): ")
     department=input("Enter your department: ")
-    database=Dataset.generate_student_id_modified()
+    database=Dataset.generate_student_data_modified()
 
     database.loc[:, 'Name'] = name
     database.loc[:, 'Department'] = department
@@ -52,12 +52,25 @@ def Admin_registration():
     database.loc[:, 'Name'] = name
     database.loc[:, 'Course Name'] = department
 
-    admin_data=database.valulijaes.tolist()
+    admin_data=database.values.tolist()
 
     return database,admin_data
 
-print(Admin_registration())
+#print(Admin_registration())
+
+def Guide_registration():
+    name = input("Enter your name: ")
+    department=input("Enter your department: ")
+
+    database=Dataset.generate_guide_data()
+    database.loc[:, 'Name'] = name
+    database.loc[:, 'Department'] = department
+
+    Guide_data=database.values.tolist()
+
+    return database,Guide_data
     
+# print(Guide_registration())
 
 
 
