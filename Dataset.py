@@ -43,6 +43,18 @@ def generate_student_id():
 
 print(generate_student_id())
 
+import pandas as pd
+
+def generate_student_id_modified():
+    student_list = []
+    for i in range(2211200, 2211700):
+        j = [i, pd.NA]
+        student_list.append(j)
+    student_data = pd.DataFrame(student_list, columns=['User ID', 'Password'])
+    return student_data
+
+
+
 '''
     with open('student_UserId.csv', mode='w', newline='') as file:
      writer = csv.writer(file)
