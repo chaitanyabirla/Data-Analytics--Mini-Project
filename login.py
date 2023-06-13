@@ -1,60 +1,37 @@
-## IMPORTS
-import re
+from numpy import NaN
+import pandas as pd
+import Dataset
 
-## USER DEF FUNCTIONS
-def student_login(user):
-    stud_UserId = user                          ##Need to see how to save these in a file!!
-    if stud_UserId in dataset:
-        stud_Pswd = input("Enter Password: ")   ##Need to think passwrd safety!
-    else: 
-        stud_Pswd = input("Set Password: ")
-        if input("Confirm Password: ") == stud_Pswd:
-            print("Loged In Successfully!")
+def student_login(user):                                    #here we need to save things in a csv file!
+    dataset,_ = Dataset.generate_student_id()                         
+    if user in dataset['User ID'].values:
+        if pd.isna(dataset.loc[dataset['User ID'] == 2211200, 'Password'].values[0]):
+            stud_Pswd = input("Set Password: ")
+            if input("Confirm Password: ") == stud_Pswd:
+                dataset.loc[dataset['User ID'] == user, 'Password'] = stud_Pswd
+                print("Loged In Successfully!")
+            else:
+                print("Passwords did not match\nRe-enter") 
         else:
-            print("Passwords did not match\nRe-enter")
+            stud_Pswd = input("Enter Password: ")   
+    else:
+        print("Enter a vaild User ID")
+    return True                                                         
 
 def guide_login(user):
     guide_UserId = user
-    if guide_UserId in dataset:                 ##Need to see how to save these in a file!!
+    dataset = Dataset.generate_guide_id()                       
+    if guide_UserId in dataset['User ID'].values:                 
         guide_Pswd = input("Enter Password: ") 
     else: 
         print("Enter a vaild User ID")
+    return True
 
 def admin_login(user):
     admin_UserId = user
-    if admin_UserId in dataset:                 ##Need to see how to save these in a file!!
+    dataset = Dataset.generate_admin_id()
+    if admin_UserId in dataset['User ID'].values:                 
         admin_Pswd = input("Enter Password: ") 
     else: 
         print("Enter a vaild User ID")
-
-
-## MAIN BODY
-
-# Log in
-print("Welcome to Summer Internship Portal\nPlease log in")
-
-print()
-
-print("User ID  guide\nFor student: 'STUD' followed by Registration Number (STUD2345678)\nFor Internship Guide: 'IG' followed by Employee ID (IG2345)\nFor Admin: 'A' followed by Employee ID (A2345)")
-user = input("Enter your User ID: ")
-if re.match(r"^(STUD)", user):
-    student_login(user)
-    user_is = "S"
-elif re.match(r"^(IG)", user):
-    guide_login(user)
-    user_is = "IG"
-elif re.match(r"^(A)", user):
-    admin_login(user)
-    user_is = "A"
-else:
-    print("Enter a vaild input")
-
-#user = input("Enter:\n 'S' to log in as a Student\n'IG' to log in as an Internship Guide\n'A' to log in as an Admin").upper()
-#if user == "S":
-#    student_login()
-#elif user == "IG":
-#    guide_login()
-#elif user == "A":
-#    admin_login()
-#else:
-#    print("Enter a vaild input")
+    return True

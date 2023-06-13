@@ -1,43 +1,52 @@
-import pandas
-import csv
+from numpy import NaN
+import pandas as pd
 
-def generate_guide_id():
-    guide_ids = []
-    for i in range(2201,2215):
-       guide_ids.append(i)
-    
+def generate_guide_data():
+    guide_list = []
+    for i in range(2201,2216):
+       j = [i,'christ@'+str(i)]
+       guide_list.append(j)
+    guide_data= pd.DataFrame(guide_list, columns=['User ID', 'Password'])
+    return guide_data
 
+'''
     with open('guide_UserId.csv', mode='w', newline='') as file:
      writer = csv.writer(file)
      writer.writerow(['Guide ID'])
      for id in guide_ids:
         writer.writerow([id])
+'''
 
+def generate_admin_data():
+    admin_list = []
+    for i in range(2201,2204):
+       j = [i,'christ@'+str(i)]
+       admin_list.append(j)
+    admin_data= pd.DataFrame(admin_list, columns=['User ID', 'Password'])
+    return admin_data
 
-
-def generate_admin_id():
-    admin_ids = []
-    for i in range(1,10):
-     admin_ids.append(i)
-
+'''
     with open('admin_UserId.csv', mode='w', newline='') as file:
      writer = csv.writer(file)
      writer.writerow(['Admin ID'])
      for id in admin_ids:
         writer.writerow([id])
+'''
 
 def generate_student_id():
-    student_id_ = []
+    student_list = []
     for i in range(2211200,2211700):
-     student_id_.append(i)
+       j = [i,NaN]
+       student_list.append(j)
+    student_data= pd.DataFrame(student_list, columns=['User ID', 'Password'])
+    return student_data, student_list
 
+print(generate_student_id())
+
+'''
     with open('student_UserId.csv', mode='w', newline='') as file:
      writer = csv.writer(file)
      writer.writerow(['Student ID'])
      for id in student_id_:
-        writer.writerow([id])
-'''
-generate_admin_id()
-generate_guide_id()
-generate_student_id()
+        writer.writerow([id])   
 '''
