@@ -2,14 +2,15 @@ import pandas
 import csv
 
 def generate_guide_id():
-    teacher_ids = []
-    for i in range(2201,2250):
-     teacher_ids.append(i)
+    guide_ids = []
+    for i in range(2201,2215):
+       guide_ids.append(i)
+    
 
     with open('guide_UserId.csv', mode='w', newline='') as file:
      writer = csv.writer(file)
      writer.writerow(['Guide ID'])
-     for id in teacher_ids:
+     for id in guide_ids:
         writer.writerow([id])
    
 
