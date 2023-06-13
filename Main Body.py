@@ -8,13 +8,13 @@ print()
 print("User ID  guide\nFor student: 'STUD' followed by Registration Number (STUD2345678)\nFor Internship Guide: 'IG' followed by Employee ID (IG2345)\nFor Admin: 'A' followed by Employee ID (A2345)")
 user = input("Enter your User ID: ")
 if re.match(r"^(STUD)", user):
-    login.student_login(user)
+    login.student_login(user[4:])
     user_is = "S"
 elif re.match(r"^(IG)", user):
-    login.guide_login(user)
+    login.guide_login(user[2:])
     user_is = "IG"
 elif re.match(r"^(A)", user):
-    login.admin_login(user)
+    login.admin_login(user[2:])
     user_is = "A"
 else:
     print("Enter a vaild input")
