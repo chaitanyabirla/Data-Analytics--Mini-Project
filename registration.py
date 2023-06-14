@@ -35,7 +35,7 @@ def Admin_registration():
     name = input("Enter your name: ")
     department=input("Enter your department: ")
 
-    database=dataset.generate_admin_data()
+    database=Dataset.generate_admin_data()
     database.loc[:, 'Name'] = name
     database.loc[:, 'Course Name'] = department
 
@@ -49,7 +49,7 @@ def Guide_registration():
     name = input("Enter your name: ")
     department=input("Enter your department: ")
 
-    database=dataset.generate_guide_data()
+    database=Dataset.generate_guide_data()
     database.loc[:, 'Name'] = name
     database.loc[:, 'Department'] = department
 

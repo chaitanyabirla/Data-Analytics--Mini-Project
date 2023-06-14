@@ -29,18 +29,19 @@ def popular_domain():
         research_pop_domain = dataset['Domain'].value_counts().sort_values(ascending=False)             #check the column name
     return internship_pop_domain, research_pop_domain
 
+def students_submitted():
+    dataset,_ = Dataset.generate_student_id()
+    report_status = input("Enter the report names you want to see status of: ").split()
+    for i in report_status:
+        return dataset[i]
+
+def announce():
+    announcement = input("Please enter your announcement: ")
+    return True, announcement
+
+
 
 
 '''
-how many students are doing what?
-see data of some specific students
-what domains in internship,reserach
-which course works
-how many have sumbitted the reports etc
-
-
-
-
 teahcers can give marks
-make announcements
 '''

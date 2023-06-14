@@ -27,10 +27,10 @@ def student_login():
         print("Enter a vaild User ID")
     
         status = False
-    return status                                                         
+    return status, user                                                      
 
 def guide_login():
-    user = input("Enter your User ID: ")
+    user = int(input("Enter your User ID: "))
     guide_UserId = user
     dataset = Dataset.generate_guide_data()                       
     if guide_UserId in dataset['User ID'].values:                 
@@ -44,21 +44,4 @@ def guide_login():
     else: 
         print("Enter a vaild User ID")
         status = False
-    return status
-
-def admin_login():
-    user = input("Enter your User ID: ")
-    admin_UserId = user
-    dataset = Dataset.generate_admin_data()
-    if admin_UserId in dataset['User ID'].values:                 
-        admin_Pswd = input("Enter Password: ") 
-        if dataset.loc[dataset['User ID'] == user, 'Password'] == admin_Pswd:
-            print("Loged In Successfully!") 
-            status = True
-        else:
-            print("Password did not match\nRe-enter")
-            status = False 
-    else: 
-        print("Enter a vaild User ID")
-        status = False
-    return status
+    return status, user
