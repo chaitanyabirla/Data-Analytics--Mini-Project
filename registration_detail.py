@@ -18,7 +18,7 @@ def student_detail(dataset):
 
 dataset=
 student_detail(dataset)'''
-
+from numpy import NaN
 import pandas as pd
 import Dataset
 
@@ -46,10 +46,7 @@ def student_registration():
         print("Invalid registration number.")
 
     database = pd.DataFrame(datalist, columns=['User ID', 'Password','Name', 'Course Name', 'Year', 'Course',"Department"])
-    return database
-
-student_data = student_registration()
-print(student_data)
+    return database,datalist
 
 
 def Admin_registration():
@@ -80,8 +77,33 @@ def Guide_registration():
     
 # print(Guide_registration())
 
-
-
-
-
+def internship():
+    intern_detail_list=[]
+    for i in range(2211200,2211700):
+        j=[i,NaN,NaN,NaN,NaN,NaN,NaN]
+        intern_detail_list.append(j)
     
+    flag=False
+    regnum=int(input("enter your registration number"))
+    for i in range(len(intern_detail_list)):
+        if intern_detail_list[i][0] == regnum:
+            company = input("Enter the company name: ")
+            domain = input("Enter the domain of the internship: ")
+            weeks = int(input("Enter the number of weeks of work: "))
+            guide_name = input("Enter the guide's name: ")
+            guide_email = input("Enter the guide's email ID: ")
+            guide_designation = input("Enter the guide's designation:")
+            
+            intern_detail_list[i][1]=company
+            intern_detail_list[i][2]=domain
+            intern_detail_list[i][3]=weeks
+            intern_detail_list[i][4]=guide_name
+            intern_detail_list[i][5]=guide_email
+            intern_detail_list[i][6]=guide_designation
+            flag=True
+            break
+    if not flag:
+        print("Invalid registration number.")
+    intern_data= pd.DataFrame(intern_detail_list, columns=['User ID',"Company" , "Domain" , "Weeks of Work" , "Guide Name" , "Guide Email" , "Guide Designation"])
+    return intern_data
+print(internship())

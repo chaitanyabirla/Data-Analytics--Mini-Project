@@ -1,36 +1,29 @@
 from numpy import NaN
-import Dataset
 import pandas as pd
 
-import pandas as pd
+def generate_student_id():
+    student_list = []
+    for i in range(2211200,2211700):
+       j = [i,NaN,NaN,NaN,NaN,NaN,NaN]
+       student_list.append(j)
+    student_data= pd.DataFrame(student_list, columns=['User ID', 'Password','Name', 'Course Name', 'Year', 'Course',"Department"])
+    return student_data, student_list
 
-def student_registration():
-    regnum = input("Enter your registration number: ")
-    database = Dataset.generate_student_data_modified()
 
-    # Create a DataFrame from the database list
-    df = pd.DataFrame(index=range(database), columns=['Registration Number', 'Name', 'Course Name', 'Year', 'Course'])
-    combined_df = pd.concat([df, database], axis=0)
-    print(database)
-    print(df)
-    print(combined_df)
-    # Find the row with the matching registration number
-    matching_row = df.loc[df['Registration Number'] == regnum]
 
-    if not matching_row.empty:
-        # Update the values in the matching row
-        matching_row.loc[:, 'Name'] = input("Enter your name: ")
-        matching_row.loc[:, 'Course Name'] = input("Enter the course name: ")
-        matching_row.loc[:, 'Year'] = int(input("Enter the year you are studying in: "))
-        matching_row.loc[:, 'Course'] = input("Enter your class (For e.g: 2LLB-A): ")
+     if internship_type == "research":
+        research_columns = input("Enter the additional research columns separated by commas: ").split(",")
+        for column_name in research_columns:
+            j.append(NaN)  # Add NaN value for each research column
+    elif internship_type == "coursework":
+        coursework_columns = input("Enter the additional coursework columns separated by commas: ").split(",")
+        for column_name in coursework_columns:
+            j.append(NaN)  # Add NaN value for each coursework column
 
-        # Convert the DataFrame back to a list
-        updated_database = df.values.tolist()
-    else:
-        print("Invalid registration number.")
-        updated_database = database  # Keep the original database as it is
+    # Define column names for the DataFrame
+    column_names = ['User ID', 'Password', 'Name', 'Course Name', 'Year', 'Course', 'Department']
+    column_names.extend(research_columns)  # Add research columns to column names if applicable
+    column_names.extend(coursework_columns)  # Add coursework columns to column names if applicable
 
-    return updated_database
-
-student_data = student_registration()
-print(student_data)
+    student_data = pd.DataFrame(student_list, columns=column_names)
+    return student_data, student_list
