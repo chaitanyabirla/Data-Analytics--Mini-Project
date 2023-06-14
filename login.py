@@ -30,7 +30,7 @@ def student_login(user):                                    #here we need to sav
 
 def guide_login(user):
     guide_UserId = user
-    dataset = Dataset.generate_guide_id()                       
+    dataset = Dataset.generate_guide_data()                       
     if guide_UserId in dataset['User ID'].values:                 
         guide_Pswd = input("Enter Password: ") 
         if dataset.loc[dataset['User ID'] == user, 'Password'] == guide_Pswd:
@@ -46,7 +46,7 @@ def guide_login(user):
 
 def admin_login(user):
     admin_UserId = user
-    dataset = Dataset.generate_admin_id()
+    dataset = Dataset.generate_admin_data()
     if admin_UserId in dataset['User ID'].values:                 
         admin_Pswd = input("Enter Password: ") 
         if dataset.loc[dataset['User ID'] == user, 'Password'] == admin_Pswd:

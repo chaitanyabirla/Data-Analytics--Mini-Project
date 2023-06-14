@@ -36,9 +36,9 @@ def generate_admin_data():
 def generate_student_id():
     student_list = []
     for i in range(2211200,2211700):
-       j = [i,NaN]
+       j = [i,NaN,NaN,NaN,NaN,NaN,NaN]
        student_list.append(j)
-    student_data= pd.DataFrame(student_list, columns=['User ID', 'Password'])
+    student_data= pd.DataFrame(student_list, columns=['User ID', 'Password','Name', 'Course Name', 'Year', 'Course',"Department"])
     return student_data, student_list
 
 print(generate_student_id())
