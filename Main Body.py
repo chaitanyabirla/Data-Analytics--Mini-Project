@@ -1,37 +1,42 @@
-import re
 import login
-import registration_detail
+import registration
+
+print('*'*25)
 print("Welcome to Summer Internship Portal\nPlease log in")
+print('*'*25)
 
 print()
 
-print("User ID  guide\nFor student: 'STUD' followed by Registration Number (STUD2345678)\nFor Internship Guide: 'IG' followed by Employee ID (IG2345)\nFor Admin: 'A' followed by Employee ID (A2345)")
-user = input("Enter your User ID: ")
-status = True
+print("Log in Guide\nFor student: 'STUD'\nFor Internship Guide: 'IG'\nFor Admin: 'A'")
+user_is = input("Log in as: ").upper()
 
-if re.match(r"^(STUD)", user):
+
+if user_is == "STUD":
+    status=True
     while status == True:
-        if login.student_login(user[4:]):
-            registration_detail.student_registration() 
+        if login.student_login():
+            registration.student_registration() 
             status = False
         else:
             status = True
     
-elif re.match(r"^(IG)", user):
+elif user_is == "IG":
+    status=True
     while status == True:
-        if login.guide_login(user[2:]):
-            registration_detail.Guide_registration() 
+        if login.guide_login():
+            registration.Guide_registration() 
             status = False
         else:
             status = True
     
-elif re.match(r"^(A)", user):
+elif user_is == "A":
+    status=True
     while status == True:
-        if login.admin_login(user[2:]):
-            registration_detail.Admin_registration() 
+        if login.admin_login():
+            registration.Admin_registration() 
             status = False
         else:
             status = True
     
 else:
-    print("Enter a vaild input")
+    print("Enter a vaild input")   #only problem here :) and i dont wanna solve this

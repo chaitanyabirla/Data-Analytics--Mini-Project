@@ -2,7 +2,8 @@ from numpy import NaN
 import pandas as pd
 import Dataset
 
-def student_login(user):                                    #here we need to save things in a csv file!
+def student_login():  
+    user = int(input("Enter your User ID: "))                                     #here we need to save things in a csv file!
     dataset,_ = Dataset.generate_student_id()                         
     if user in dataset['User ID'].values:
         if pd.isna(dataset.loc[dataset['User ID'] == user, 'Password'].values[0]):
@@ -28,7 +29,8 @@ def student_login(user):                                    #here we need to sav
         status = False
     return status                                                         
 
-def guide_login(user):
+def guide_login():
+    user = input("Enter your User ID: ")
     guide_UserId = user
     dataset = Dataset.generate_guide_id()                       
     if guide_UserId in dataset['User ID'].values:                 
@@ -44,7 +46,8 @@ def guide_login(user):
         status = False
     return status
 
-def admin_login(user):
+def admin_login():
+    user = input("Enter your User ID: ")
     admin_UserId = user
     dataset = Dataset.generate_admin_id()
     if admin_UserId in dataset['User ID'].values:                 
