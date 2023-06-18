@@ -11,7 +11,7 @@ def generate_student_id():
 
 
 
-     if internship_type == "research":
+    if internship_type == "research":
         research_columns = input("Enter the additional research columns separated by commas: ").split(",")
         for column_name in research_columns:
             j.append(NaN)  # Add NaN value for each research column
