@@ -24,7 +24,12 @@ def student_registration(user):
     database.loc[:, 'Course'] = course
     student_data = database.values.tolist()
 
+
+
     return student_data,database
+
+#print(student_registration())
+
 
 def Admin_registration():
     name = input("Enter your name: ")
@@ -77,11 +82,7 @@ def student_detail(dataset):
 
 dataset=
 student_detail(dataset)'''
-
-
 from numpy import NaN
-import pandas as pd
-import Dataset
 
 def student_registration():
     flag = False
@@ -95,19 +96,22 @@ def student_registration():
             course = input("Enter your class (For e.g: 2LLB-A): ")
             department = input("Enter your department: ")
 
-            # Update the values only in the specific row that matches the registration number
+         
             datalist[i][2] = name
             datalist[i][3] = department
             datalist[i][4] = course_name
             datalist[i][5] = year
             datalist[i][6] = course
+
+
+
             flag = True
             break
     if not flag:
         print("Invalid registration number.")
 
     database = pd.DataFrame(datalist, columns=['User ID', 'Password','Name',"Department", 'Course Name', 'Year', 'Course'])
-    return database,datalist
+    return database
 
 
 def Admin_registration():
@@ -167,7 +171,8 @@ def internship():
         print("Invalid registration number.")
     intern_data= pd.DataFrame(intern_detail_list, columns=['User ID',"Company" , "Domain" , "Weeks of Work" , "Guide Name" , "Guide Email" , "Guide Designation"])
     return intern_data
-#print(internship())
+
+# print(internship())
 
 
 
@@ -240,4 +245,38 @@ def Reserchwork():
         print("Invalid registration number.")
     course_data= pd.DataFrame(reserch_detail_list, columns=['User ID',"University" , "Domain" , "Start Date" , "End Date" , "Guide Email" , "Guide Designation","Publication"])
     return course_data
-print(Reserchwork())
+#print(Reserchwork())
+
+
+database = student_registration()
+intern_data = internship()
+appended_data = pd.merge(database, intern_data, on='User ID', how='outer')
+
+print(appended_data)
+
+
+
+    
+# print(Guide_registration())
+
+
+'''import csv
+def student_detail(dataset):
+    
+    name=input("Enter your name:")
+    course_name=("Enter the course name:")
+    year=int(input("Enter the year you are studying in:"))
+    course=input("Enter your class\n(For e.g: 2LLB-A):")
+    with open('dataset.csv','r') as ID:
+        content=csv.reader(ID)
+        with open('new_dataset.csv','w',newline='') as details:
+            details=csv.writer(details)
+            for i in content:
+                i.append(name)
+                i.append(course_name)
+                i.append(year)
+                i.append(course)
+                details.writerow(i)
+
+dataset=
+student_detail(dataset)'''
