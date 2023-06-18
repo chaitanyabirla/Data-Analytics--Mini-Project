@@ -1,7 +1,3 @@
-import Dataset
-import login
-import registration
-import guide
 import pandas as pd
 
 print('*'*25)
@@ -17,10 +13,13 @@ user_is = input("Log-in as: ").upper()
 if user_is == "STUD":
     status=True
     while status == True:
+        import login
         result,_ = login.student_login()
         if result:
-            _,user = login.student_login
+            _,user = login.student_login()
+            import Dataset
             dataset,_ = Dataset.generate_student_id()
+            import registration
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
                 registration.student_registration(user) 
             announcement_result, announcement = guide.announce()
@@ -34,19 +33,23 @@ if user_is == "STUD":
 elif user_is == "IG":
     status=True
     while status == True:
+        import login
         result,_ = login.guide_login()
         if result:
             _,user = login.guide_login
-            dataset,_ = Dataset.generate_student_id()
+            import Dataset
+            dataset,_ = Dataset.generate_guide_data()
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
+                import registration
                 registration.Guide_registration()
-            status = True 
+                status = True 
             print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research and coursework\n'Popular Course': To see which course has been opted by most to students\n'Popular Domain': To see which domain has been opted by most to students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
             status1 = True
+            import guide
             while status1:
                 fun = input("Enter the function:").lower()
                 if fun == "view":
-                    guide.view_dataset
+                    guide.view_dataset()
                 elif fun == "view student specific":
                     guide.view_student_records()
                 elif fun == "type":
