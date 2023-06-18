@@ -15,7 +15,6 @@ def view_type():
     dataset,_ = Dataset.generate_student_id()
     return dataset['Type'].value_counts().sort_values(ascending=False)                #check the column name 
 
-
 def popular_course():
     dataset,_ = Dataset.generate_student_id()
     if dataset['Course Work'] == True:

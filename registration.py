@@ -24,12 +24,7 @@ def student_registration(user):
     database.loc[:, 'Course'] = course
     student_data = database.values.tolist()
 
-
-
     return student_data,database
-
-#print(student_registration())
-
 
 def Admin_registration():
     name = input("Enter your name: ")
@@ -42,8 +37,6 @@ def Admin_registration():
     admin_data=database.values.tolist()
 
     return database,admin_data
-
-#print(Admin_registration())
 
 def Guide_registration():
     name = input("Enter your name: ")
@@ -84,6 +77,8 @@ def student_detail(dataset):
 
 dataset=
 student_detail(dataset)'''
+
+
 from numpy import NaN
 import pandas as pd
 import Dataset

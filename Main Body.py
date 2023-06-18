@@ -40,7 +40,10 @@ elif user_is == "IG":
             dataset,_ = Dataset.generate_student_id()
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
                 registration.Guide_registration()
-            print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research and coursework\n'") 
+            status = True 
+            print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research and coursework\n'Popular Course': To see which course has been opted by most to students\n'Popular Domain': To see which domain has been opted by most to students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
+            fun = input("Enter the function:")
+
             status = False
         else:
             status = True
