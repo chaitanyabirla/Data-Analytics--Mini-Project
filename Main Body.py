@@ -9,41 +9,44 @@ print()
 print("Log-in Guide\nFor student: 'STUD'\nFor Internship Guide: 'IG'")
 user_is = input("Log-in as: ").upper()
 
-
 if user_is == "STUD":
-    status=True
-    while status == True:
-        import login
-        result,_ = login.student_login()
+    status = True
+    import login
+    while status:
+        result, user, dataset = login.student_login()
+        import registration
         if result:
-            _,user = login.student_login()
-            import Dataset
-            dataset,_ = Dataset.generate_student_id()
-            import registration
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                registration.student_registration(user) 
-            announcement_result, announcement = guide.announce()
-            if announcement_result:
-                print("There is an announcement!!")
-                print(announcement)
+                registration.student_registration(user)
+            dataset.to_csv("Student_data.csv", index=True) 
+            type = input("Have you chosen Intership (IN)\nResearch work (RW)\nCourse work (CW)? ").lower()
+            if type == 'in':
+                registration.stu_intern(user,dataset)
+            elif type == 'rw':
+                registration.stu_reserch(user,dataset)
+            elif type == 'cw':
+                registration.stu_course(user,dataset)
+            else:
+                print("Enter a vaild input")
+            #import guide
+            #announcement_result, announcement = guide.announce()
+            #if announcement_result:
+            #    print("There is an announcement!!")
+            #    print(announcement)
             status = False
         else:
             status = True
     
 elif user_is == "IG":
-    status=True
-    while status == True:
-        import login
-        result,_ = login.guide_login()
+    status = True
+    import login
+    while status:
+        result, user,dataset = login.guide_login()
         if result:
-            _,user = login.guide_login
-            import Dataset
-            dataset,_ = Dataset.generate_guide_data()
+            import registration
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                import registration
-                registration.Guide_registration()
-                status = True 
-            print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research and coursework\n'Popular Course': To see which course has been opted by most to students\n'Popular Domain': To see which domain has been opted by most to students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
+                registration.Guide_registration(user)
+            print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research, and coursework\n'Popular Course': To see which course has been opted by most students\n'Popular Domain': To see which domain has been opted by most students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
             status1 = True
             import guide
             while status1:
@@ -63,7 +66,7 @@ elif user_is == "IG":
                 elif fun == "announcement":
                     guide.announce()
                 else:
-                    print("Enter a vaild function")
+                    print("Enter a valid function")
                 repeat = input("Do you want to use another function? (y/n) ").lower()
                 if repeat == "y":
                     continue
@@ -72,6 +75,5 @@ elif user_is == "IG":
             status = False
         else:
             status = True
-    
 else:
-    print("Enter a vaild input")   #only problem here :) and i dont wanna solve this
+    print("Enter a valid input")
