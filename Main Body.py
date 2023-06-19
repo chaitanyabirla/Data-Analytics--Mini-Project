@@ -2,17 +2,20 @@ import pandas as pd
 import login as lgin
 import registration as reg
 import guide as gud
-import Data.Dataset as data
 
-
-print('*'*25)
-print("Welcome to Summer Internship Portal\nPlease log in")
-print('*'*25)
+print('*'*50)
+print(f"{'Welcome to Summer Internship Portal' : ^50}")
+print(f"{'Please log in' : ^50}")
+print('*'*50)
 
 print()
 
-print("Log-in Guide\nFor student: 'STUD'\nFor Internship Guide: 'IG'")
+print("<<Log-in Guide>>\nFor student: 'STUD'\nFor Internship Guide: 'IG'")
+
+print()
+
 user_is = input("Log-in as: ").upper()
+print()
 
 if user_is == "STUD":
     status = True
@@ -20,8 +23,13 @@ if user_is == "STUD":
         result, user, dataset = lgin.student_login()
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
+                print("You have loged in for the first time\nnYou need to register!")
                 dataset = reg.student_registration(user)
-            type = input("Have you chosen Intership (IN)\nResearch work (RW)\nCourse work (CW)? ").lower()
+            print()
+            print("<<Type Guide>>\nIntership: 'IN'\nResearch work: 'RW'\nCourse work: 'CW'")
+            print()
+            type = input("What have your chosen? ").lower()
+            print()
             if type == 'in':
                 reg.stu_intern(user,dataset)
             elif type == 'rw':
@@ -30,8 +38,12 @@ if user_is == "STUD":
                 reg.stu_course(user,dataset)
             else:
                 print("Enter a vaild input")
+            print()
             guide_data = pd.read_csv("Data/Guide_data.csv")
             if not guide_data['Announcement'].isna().any():
+                print('*'*50)
+                print("There is an Announcement!")
+                print('*'*50)
                 print(guide_data['Announcement'])
             status = False
         else:
@@ -43,8 +55,11 @@ elif user_is == "IG":
         result, user, dataset = lgin.guide_login()
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                dataset = reg.Guide_registration(user) 
-            print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research, and coursework\n'Popular Course': To see which course has been opted by most students\n'Popular Domain': To see which domain has been opted by most students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
+                print("You have loged in for the first time\nnYou need to register!")
+                dataset = reg.Guide_registration(user)
+            print() 
+            print("<<Functions Guide>>\nTo view the records of all students: 'View'\nTo view the records of specific students: 'View Student Specific'\nTo see how many students have opted for internship, research, and coursework: 'Type'\nTo see which course has been opted by most students: 'Popular Course'\nTo see which domain has been opted by most students: 'Popular Domain'\nTo see which students have submitted the needed documents: 'Submitted'\nTo make an announcement: 'Announcement'")
+            print()
             status1 = True
             while status1:
                 fun = input("Enter the function:").lower()
@@ -64,7 +79,11 @@ elif user_is == "IG":
                     gud.announce(user)
                 else:
                     print("Enter a valid function")
-                repeat = input("Do you want to use another function? (y/n) ").lower()
+                print()
+                
+                print("<<Repeat Guide>>\nTo Continue: 'y'\nTo Exit: 'n'")
+                print()
+                repeat = input("Do you want to continue? ").lower()
                 if repeat == "y":
                     continue
                 else:
