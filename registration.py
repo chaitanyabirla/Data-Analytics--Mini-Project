@@ -19,11 +19,9 @@ def Guide_registration(userid):
 
     if not flag:
         print("Invalid registration number.")
-    database = pd.DataFrame(datalist, columns=['User ID', 'Password','Name',"Department"])
+    database = pd.DataFrame(datalist, columns=['User ID', 'Password','Department', 'Name'])
     return database
     
-
-#print(Guide_registration())
 
 def student_registration(regnum):
     flag = False
@@ -31,23 +29,21 @@ def student_registration(regnum):
     for i in range(len(datalist)):
         if datalist[i][0] == regnum:
             name = input("Enter your name: ")
-            course_name = input("Enter the course name: ")
             year = int(input("Enter the year you are studying in: "))
             course = input("Enter your class (For e.g: 2LLB-A): ")
             department = input("Enter your department: ")
 
             datalist[i][2] = name
-            datalist[i][3] = department
-            datalist[i][4] = course_name
-            datalist[i][5] = year
-            datalist[i][6] = course
+            datalist[i][3] = year
+            datalist[i][4] = department
+            datalist[i][5] = course
 
             flag = True
             break
 
     if not flag:
         print("Invalid registration number.")
-    database = pd.DataFrame(datalist, columns=['User ID', 'Password','Name',"Department", 'Course Name', 'Year', 'Course'])
+    database = pd.DataFrame(datalist, columns=['User ID', 'Password','Name','Year','Department', 'Course'])
     return database
 
 def internship(regnum):
@@ -77,7 +73,7 @@ def internship(regnum):
     if not flag:
         print("Invalid registration number.")
     
-    intern_data= pd.DataFrame(intern_detail_list, columns=['User ID',"Company" , "Domain" , "Weeks of Work" , "Guide Name" , "Guide Email" , "Guide Designation"])
+    intern_data= pd.DataFrame(intern_detail_list, columns=['User ID',"Company Name" , "Domain" , "Weeks of Work" , "Guide Name" , "Guide Email" , "Guide Designation"])
     #intern_data.to_csv("Intern_data.csv", index=True)
     return intern_data
 
@@ -110,7 +106,7 @@ def coursework(regnum):
             break
     if not flag:
         print("Invalid registration number.")
-    course_data= pd.DataFrame(course_detail_list, columns=['User ID',"Course" , "Domain" , "Start Date" , "End Date" , "Guide Email" , "Guide Designation"])
+    course_data= pd.DataFrame(course_detail_list, columns=['User ID',"Course Name" , "Domain" , "Start Date" , "End Date" , "Guide Email" , "Guide Designation"])
    # course_data.to_csv("course_data.csv", index=True)
     return course_data
 
@@ -145,44 +141,21 @@ def Reserchwork(regnum):
             break
     if not flag:
         print("Invalid registration number.")
-    reserch_data= pd.DataFrame(reserch_detail_list, columns=['User ID',"University" , "Domain" , "Start Date" , "End Date" , "Guide Email" , "Guide Designation","Publication"])
+    reserch_data= pd.DataFrame(reserch_detail_list, columns=['User ID',"University Name" , "Domain" , "Start Date" , "End Date" , "Guide Email" , "Guide Designation","Publication"])
     #reserch_data.to_csv("Reserch_data.csv", index=True)
     return reserch_data
 
 def stu_intern(user,database):
     intern_data = internship(user)
     appended_data = pd.merge(database, intern_data, on='User ID', how='outer')
-    appended_data.to_csv("intern_data.csv", index=True)
+    appended_data.to_csv("Data/Intern_data.csv", index=True)
 
 def stu_course(user,database):
     intern_data = coursework(user)
     appended_data = pd.merge(database, intern_data, on='User ID', how='outer')
-    appended_data.to_csv("Course_data.csv", index=True)
+    appended_data.to_csv("Data/Course_data.csv", index=True)
 
 def stu_reserch(user,database):
     intern_data = Reserchwork(user)
     appended_data = pd.merge(database, intern_data, on='User ID', how='outer')
-    appended_data.to_csv("Reserch_data.csv", index=True)
-
-
-'''import csv
-def student_detail(dataset):
-    
-    name=input("Enter your name:")
-    course_name=("Enter the course name:")
-    year=int(input("Enter the year you are studying in:"))
-    course=input("Enter your class\n(For e.g: 2LLB-A):")
-    with open('dataset.csv','r') as ID:
-        content=csv.reader(ID)
-        with open('new_dataset.csv','w',newline='') as details:
-            details=csv.writer(details)
-            for i in content:
-                i.append(name)
-                i.append(course_name)
-                i.append(year)
-                i.append(course)
-                details.writerow(i)
-
-dataset=
-student_detail(dataset)
-'''
+    appended_data.to_csv("Data/Reserch_data.csv", index=True)

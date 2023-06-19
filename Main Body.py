@@ -1,4 +1,7 @@
 import pandas as pd
+import login as lgin
+import registration as reg
+import guide as gud
 
 
 print('*'*25)
@@ -13,20 +16,18 @@ user_is = input("Log-in as: ").upper()
 if user_is == "STUD":
     status = True
     while status:
-        import login
-        result, user, dataset = login.student_login()
-        import registration
+        result, user, dataset = lgin.student_login()
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                dataset = registration.student_registration(user)
-            dataset.to_csv("Student_data.csv", index=True) 
+                dataset = reg.student_registration(user)
+            dataset.to_csv("Data/Student_data.csv", index=True) 
             type = input("Have you chosen Intership (IN)\nResearch work (RW)\nCourse work (CW)? ").lower()
             if type == 'in':
-                registration.stu_intern(user,dataset)
+                reg.stu_intern(user,dataset)
             elif type == 'rw':
-                registration.stu_reserch(user,dataset)
+                reg.stu_reserch(user,dataset)
             elif type == 'cw':
-                registration.stu_course(user,dataset)
+                reg.stu_course(user,dataset)
             else:
                 print("Enter a vaild input")
             #import guide
@@ -41,32 +42,29 @@ if user_is == "STUD":
 elif user_is == "IG":
     status = True
     while status:
-        import login
-        result, user, dataset = login.guide_login()
+        result, user, dataset = lgin.guide_login()
         if result:
-            import registration
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                dataset = registration.Guide_registration(user)
-            dataset.to_csv("Guide_data.csv", index=True) 
+                dataset = reg.Guide_registration(user)
+            dataset.to_csv("Data/Guide_data.csv", index=True) 
             print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research, and coursework\n'Popular Course': To see which course has been opted by most students\n'Popular Domain': To see which domain has been opted by most students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
             status1 = True
-            import guide
             while status1:
                 fun = input("Enter the function:").lower()
                 if fun == "view":
-                    guide.view_dataset()
+                    gud.view_dataset()
                 elif fun == "view student specific":
-                    guide.view_student_records()
+                    gud.view_student_records()
                 elif fun == "type":
-                    guide.view_type()
+                    gud.view_type()
                 elif fun == "popular course":
-                    guide.popular_course()
+                    gud.popular_course()
                 elif fun == "popular domain":
-                    guide.popular_domain()
+                    gud.popular_domain()
                 elif fun == "submitted":
-                    guide.students_submitted()
+                    gud.students_submitted()
                 elif fun == "announcement":
-                    guide.announce()
+                    gud.announce()
                 else:
                     print("Enter a valid function")
                 repeat = input("Do you want to use another function? (y/n) ").lower()

@@ -4,7 +4,7 @@ import Dataset
 
 def student_login():  
     user = int(input("Enter your User Id(Stud): "))                                 
-    dataset = pd.read_csv("Student_data.csv")                     
+    dataset = pd.read_csv("Data/Student_data.csv")                     
     if user in dataset['User ID'].values:
         if pd.isna(dataset.loc[dataset['User ID'] == user, 'Password'].values[0]):
             stud_Pswd = input("Set Password: ")
@@ -52,7 +52,7 @@ def guide_login():
 def guide_login():
     user = int(input("Enter your User ID(admin): "))
     guide_UserId = user
-    dataset = pd.read_csv("Guide_data.csv")
+    dataset = pd.read_csv("Data/Guide_data.csv")
     
     if guide_UserId in dataset['User ID'].values:
         guide_Pswd = input("Enter Password: ")
