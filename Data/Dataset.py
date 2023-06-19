@@ -4,13 +4,13 @@ import pandas as pd
 def generate_guide_data():
     guide_list = []
     for i in range(2201,2216):
-       j = [i,'christ@'+str(i),NaN,NaN]
+       j = [i,'christ@'+str(i),NaN,NaN,NaN]
        guide_list.append(j)
-    guide_data= pd.DataFrame(guide_list, columns=['User ID', 'Password','Department','Name'])
+    guide_data= pd.DataFrame(guide_list, columns=['User ID', 'Password','Department','Name','Announcement'])
     return guide_data,guide_list
 
 guide_data,_ = generate_guide_data()
-guide_data.to_csv("Data/Guide_data.csv", index=True)
+guide_data.to_csv("Data/Guide_data.csv",index = False)
 
 
 def generate_student_id():
@@ -23,4 +23,5 @@ def generate_student_id():
 generate_student_id()
 
 student_data,_ = generate_student_id()
-student_data.to_csv("Data/Student_data.csv", index=True)
+student_data.to_csv("Data/Student_data.csv",index = False)
+

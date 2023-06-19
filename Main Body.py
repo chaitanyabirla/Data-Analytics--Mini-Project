@@ -2,6 +2,7 @@ import pandas as pd
 import login as lgin
 import registration as reg
 import guide as gud
+import Data.Dataset as data
 
 
 print('*'*25)
@@ -20,7 +21,6 @@ if user_is == "STUD":
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
                 dataset = reg.student_registration(user)
-            dataset.to_csv("Data/Student_data.csv", index=True) 
             type = input("Have you chosen Intership (IN)\nResearch work (RW)\nCourse work (CW)? ").lower()
             if type == 'in':
                 reg.stu_intern(user,dataset)
@@ -30,11 +30,9 @@ if user_is == "STUD":
                 reg.stu_course(user,dataset)
             else:
                 print("Enter a vaild input")
-            #import guide
-            #announcement_result, announcement = guide.announce()
-            #if announcement_result:
-            #    print("There is an announcement!!")
-            #    print(announcement)
+            guide_data = pd.read_csv("Data/Guide_data.csv")
+            if not guide_data['Announcement'].isna().any():
+                print(guide_data['Announcement'])
             status = False
         else:
             status = True
@@ -45,8 +43,7 @@ elif user_is == "IG":
         result, user, dataset = lgin.guide_login()
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                dataset = reg.Guide_registration(user)
-            dataset.to_csv("Data/Guide_data.csv", index=True) 
+                dataset = reg.Guide_registration(user) 
             print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research, and coursework\n'Popular Course': To see which course has been opted by most students\n'Popular Domain': To see which domain has been opted by most students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
             status1 = True
             while status1:
@@ -64,7 +61,7 @@ elif user_is == "IG":
                 elif fun == "submitted":
                     gud.students_submitted()
                 elif fun == "announcement":
-                    gud.announce()
+                    gud.announce(user)
                 else:
                     print("Enter a valid function")
                 repeat = input("Do you want to use another function? (y/n) ").lower()

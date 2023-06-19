@@ -1,5 +1,5 @@
-,User ID,Password,Name,Year,Department,Course,Company Name,Domain,Weeks of Work,Guide Name,Guide Email,Guide Designation
-0,2211200.0,,chaitanya,2.0,ds,2Bscea,ey,data science,5.0,nadif,nadif@gmail.com,manager
+,User ID,Password,Name,Year,Department,Course,Course Name,Domain,Start Date,End Date,Guide Email,Guide Designation
+0,2211200.0,,Chaitanya,2.0,ds,2bscea,stats,ds,2023-11-22,2023-12-22,g@gm,hg
 1,2211201.0,,,,,,,,,,,
 2,2211202.0,,,,,,,,,,,
 3,2211203.0,,,,,,,,,,,

@@ -1,25 +1,27 @@
-import Dataset
+import Data.Dataset as Dataset
+import pandas as pd
+
 def view_dataset():
-    student_data,_ = Dataset.generate_student_id()
+    student_data = pd.read_csv("Data/Student_data.csv")
     return student_data
 
 def view_student_records():
-    student_data, _ = Dataset.generate_student_id()
+    student_data = pd.read_csv("Data/Student_data.csv")
     stud = input("Enter the Registration Numbers of student(s) you want to see details of: ").split()
     stud = [int(reg) for reg in stud]
     return student_data[student_data['User ID'].isin(stud)]
 
 def view_type():
-    student_data, _ = Dataset.generate_student_id()
+    student_data = pd.read_csv("Data/Student_data.csv")
     return student_data['Type'].value_counts().sort_values(ascending=False)
 
 def popular_course():
-    student_data, _ = Dataset.generate_student_id()
+    student_data = pd.read_csv("Data/Student_data.csv")
     if 'Course Work' in student_data.columns:
         return student_data['Course Name'].value_counts().sort_values(ascending=False)
 
 def popular_domain():
-    student_data, _ = Dataset.generate_student_id()
+    student_data = pd.read_csv("Data/Student_data.csv")
     internship_pop_domain = None
     research_pop_domain = None
     if 'Internship' in student_data.columns:
@@ -29,13 +31,16 @@ def popular_domain():
     return internship_pop_domain, research_pop_domain
 
 def students_submitted():
-    student_data, _ = Dataset.generate_student_id()
+    student_data = pd.read_csv("Data/Student_data.csv", index = True)
     report_status = input("Enter the report names you want to see the status of: ").split()
     return student_data[report_status]
 
-def announce():
+def announce(user):
     announcement = input("Please enter your announcement: ")
-    return True, announcement
+    guide_data = pd.read_csv("Data/Guide_data.csv")
+    guide_data.loc[guide_data['User ID'] == user, 'Announcement'] = announcement
+    guide_data.to_csv("Data/Guide_data.csv",index = False)
+    return True
 
 
 
