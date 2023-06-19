@@ -91,7 +91,7 @@ def internship(regnum):
     intern_data= pd.DataFrame(intern_detail_list, columns=['User ID',"Company Name" , "Domain" , "Weeks of Work" , "Guide Name" , "Guide Email" , "Guide Designation"])
     return intern_data
 
-def coursework(regnum):
+def coursework(regnum): #dont mind this
     from datetime import datetime
     course_detail_list=[]
     for i in range(2211200,2211700):
@@ -158,7 +158,7 @@ def Reserchwork(regnum):
             reserch_detail_list[i][6]=guide_designation
             reserch_detail_list[i][7]=publication
             flag=True
-            
+
             print()
             print("*"*50)
             print(f"{'Registered Successfully!' : ^50}")
