@@ -10,8 +10,9 @@ def student_login():
             if input("Confirm Password: ") == stud_Pswd:
                 dataset.loc[dataset['User ID'] == user, 'Password'] = stud_Pswd
                 dataset.to_csv("Data/Student_data.csv", index=False)
+                print()
                 print('*'*50)
-                print("Loged In Successfully!")
+                print(f"{'Logged In Successfully!' : ^50}")
                 print('*'*50)
                 print()
                 status = True
@@ -21,9 +22,10 @@ def student_login():
                 status = False
         else:
             stud_Pswd = input("Enter Password: ")  
-            if dataset.loc[dataset['User ID'] == user, 'Password'] == stud_Pswd:
+            if (dataset.loc[dataset['User ID'] == user, 'Password'] == stud_Pswd).any():
+                print()
                 print('*'*50)
-                print("Loged In Successfully!")
+                print(f"{'Logged In Successfully!' : ^50}")
                 print('*'*50)
                 print() 
                 status = True
@@ -48,8 +50,9 @@ def guide_login():
     if guide_UserId in dataset['User ID'].values:
         guide_Pswd = input("Enter Password: ")
         if (dataset.loc[dataset['User ID'] == user, 'Password'] == guide_Pswd).any():
+            print()
             print('*'*50)
-            print("Logged In Successfully!")
+            print(f"{'Logged In Successfully!' : ^50}")
             print('*'*50)
             print()
             status = True

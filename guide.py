@@ -39,5 +39,10 @@ def announce(user):
     announcement = input("Please enter your announcement: ")
     guide_data = pd.read_csv("Data/Guide_data.csv")
     guide_data.loc[guide_data['User ID'] == user, 'Announcement'] = announcement
+    print()
+    print('*'*50)
+    print(f"{'Announcement Added!' : ^50}")
+    print('*'*50)
+    print()
     guide_data.to_csv("Data/Guide_data.csv",index = False)
     return True

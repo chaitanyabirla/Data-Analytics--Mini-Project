@@ -24,42 +24,52 @@ if user_is == "STUD":
         result, user, dataset = lgin.student_login()
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                print("You have loged in for the first time\nnYou need to register!")
+                print("You have loged in for the first time\nYou need to register!")
+                print()
                 dataset = reg.student_registration(user)
+                print()
+                print("<<Type Guide>>\nIntership: 'IN'\nResearch work: 'RW'\nCourse work: 'CW'")
+                print()
+                type = input("What have your chosen? ").lower()
+                print()
+                if type == 'in':
+                    reg.stu_intern(user,dataset)
+                elif type == 'rw':
+                    reg.stu_reserch(user,dataset)
+                elif type == 'cw':
+                    reg.stu_course(user,dataset)
+                else:
+                    print("Enter a vaild input")
             print()
-            print("<<Type Guide>>\nIntership: 'IN'\nResearch work: 'RW'\nCourse work: 'CW'")
-            print()
-            type = input("What have your chosen? ").lower()
-            print()
-            if type == 'in':
-                reg.stu_intern(user,dataset)
-            elif type == 'rw':
-                reg.stu_reserch(user,dataset)
-            elif type == 'cw':
-                reg.stu_course(user,dataset)
-            else:
-                print("Enter a vaild input")
-            print()
-            guide_data = pd.read_csv("Data/Guide_data.csv")
+
+            guide_data = pd.read_csv("Data/Guide_data.csv")     #this is not showing
             if not guide_data['Announcement'].isna().any():
                 print('*'*50)
                 print("There is an Announcement!")
                 print('*'*50)
                 print(guide_data['Announcement'])
 
-            print("Welcome to the Weekly Report System")
-            while True:
-                print("Menu:")
-                print("1. Enter Report")
-                print("2. Exit")
-                choice = input("Enter your choice: ")
-                if choice == "1":
-                    rep.enter_report(user)
-                elif choice == "2":
-                    break
-                else:
-                    print("Invalid choice. Please try again.")
-            print("Thank you for using the Weekly Report System!")
+            print("<<Weekly Report Guide>>\nTo Submit: 'y'\nTo Exit: 'n'")
+            print()
+
+            submit = input("Do you want to submit your weekly reports? ").lower()
+            print()
+
+            if submit == 'y':
+                while True:
+                    print("<<Submission Guide>>\nTo Enter Report: '1'\nTo Exit: '2'")
+                    print()
+                    choice = input("Enter your choice: ")
+                    if choice == "1":
+                        rep.enter_report(user)
+                    elif choice == "2":
+                        break
+                    else:
+                        print("Invalid choice\nPlease try again!")
+            
+            print('*'*55)
+            print(f"{'Thank you for using the Summer Internship Portal!' : ^55}")
+            print('*'*55)
             status = False
         else:
             status = True
@@ -70,23 +80,26 @@ elif user_is == "IG":
         result, user, dataset = lgin.guide_login()
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                dataset = reg.Guide_registration(user) 
-            print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research, and coursework\n'Popular Course': To see which course has been opted by most students\n'Popular Domain': To see which domain has been opted by most students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
+                print("You have loged in for the first time\nYou need to register!")
+                print()
+                dataset = reg.guide_registration(user) 
             status1 = True
             while status1:
-                fun = input("Enter the function:").lower()
+                print("<<Function Guide>>\nTo view the records of all students: 'View'\nTo view the records of specific students: 'View Student Specific'\nTo see how many students have opted for internship, research, and coursework: 'Type'\nTo see which course has been opted by most students: 'Popular Course'\nTo see which domain has been opted by most students: 'Popular Domain'\nTo see which students have submitted the needed documents: 'Submitted'\nTo make an announcement: 'Announcement'")
+                print()
+                fun = input("Enter the function: ").lower()
                 if fun == "view":
-                    gud.view_dataset()
+                    print(gud.view_dataset())
                 elif fun == "view student specific":
-                    gud.view_student_records()
+                    print(gud.view_student_records())
                 elif fun == "type":
-                    gud.view_type()
+                    print(gud.view_type())
                 elif fun == "popular course":
-                    gud.popular_course()
+                    print(gud.popular_course())
                 elif fun == "popular domain":
-                    gud.popular_domain()
+                    print(gud.popular_domain())
                 elif fun == "submitted":
-                    gud.students_submitted()
+                    print(gud.students_submitted())
                 elif fun == "announcement":
                     gud.announce(user)
                 else:
@@ -100,8 +113,9 @@ elif user_is == "IG":
                     continue
                 else:
                     status1 = False
+            print("Thank you for using the Summer Internship Portal!")
             status = False
         else:
             status = True
 else:
-    print("Enter a valid input")
+    print("Enter a valid input!")

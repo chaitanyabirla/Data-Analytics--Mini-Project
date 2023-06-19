@@ -7,4 +7,7 @@ def enter_report(student_id):
     report = input("Enter your Week "+week+" Report: ")
     stud_dataset.loc[stud_dataset["User ID"] == student_id, "Week "+week+" Report"]= report
     stud_dataset.to_csv("Data/Student_data.csv", index=False)
-    print("Report Addess Successfully!")
+    print('*'*50)
+    print(f"{'Report Addess Successfully!' : ^50}")
+    print('*'*50)
+    print()
