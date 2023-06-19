@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 print('*'*25)
 print("Welcome to Summer Internship Portal\nPlease log in")
 print('*'*25)
@@ -11,13 +12,13 @@ user_is = input("Log-in as: ").upper()
 
 if user_is == "STUD":
     status = True
-    import login
     while status:
+        import login
         result, user, dataset = login.student_login()
         import registration
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                registration.student_registration(user)
+                dataset = registration.student_registration(user)
             dataset.to_csv("Student_data.csv", index=True) 
             type = input("Have you chosen Intership (IN)\nResearch work (RW)\nCourse work (CW)? ").lower()
             if type == 'in':
@@ -39,13 +40,14 @@ if user_is == "STUD":
     
 elif user_is == "IG":
     status = True
-    import login
     while status:
-        result, user,dataset = login.guide_login()
+        import login
+        result, user, dataset = login.guide_login()
         if result:
             import registration
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                registration.Guide_registration(user)
+                dataset = registration.Guide_registration(user)
+            dataset.to_csv("Guide_data.csv", index=True) 
             print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research, and coursework\n'Popular Course': To see which course has been opted by most students\n'Popular Domain': To see which domain has been opted by most students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
             status1 = True
             import guide

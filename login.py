@@ -3,7 +3,7 @@ import pandas as pd
 import Dataset
 
 def student_login():  
-    user = int(input("Enter your User ID: "))                                     #here we need to save things in a csv file!
+    user = int(input("Enter your User Id(Stud): "))                                 
     dataset = pd.read_csv("Student_data.csv")                     
     if user in dataset['User ID'].values:
         if pd.isna(dataset.loc[dataset['User ID'] == user, 'Password'].values[0]):
@@ -28,8 +28,8 @@ def student_login():
         status = False
     return status, user, dataset 
 
-_,_,dataset = student_login()
-dataset.to_csv("Student_data.csv", index=True)
+#_,_,dataset = student_login()
+#dataset.to_csv("Student_data.csv", index=True)
 
 '''
 def guide_login():
@@ -50,7 +50,7 @@ def guide_login():
     return status, user
 '''
 def guide_login():
-    user = int(input("Enter your User ID: "))
+    user = int(input("Enter your User ID(admin): "))
     guide_UserId = user
     dataset = pd.read_csv("Guide_data.csv")
     
@@ -69,5 +69,5 @@ def guide_login():
     
     return status, user, dataset
 
-_,_,dataset = guide_login()
-dataset.to_csv("Guide_data.csv", index=True)
+#_,_,dataset = guide_login()
+#dataset.to_csv("Guide_data.csv", index=True)
