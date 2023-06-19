@@ -2,6 +2,7 @@ import pandas as pd
 import login as lgin
 import registration as reg
 import guide as gud
+import report as rep
 
 print('*'*50)
 print(f"{'Welcome to Summer Internship Portal' : ^50}")
@@ -45,6 +46,20 @@ if user_is == "STUD":
                 print("There is an Announcement!")
                 print('*'*50)
                 print(guide_data['Announcement'])
+
+            print("Welcome to the Weekly Report System")
+            while True:
+                print("Menu:")
+                print("1. Enter Report")
+                print("2. Exit")
+                choice = input("Enter your choice: ")
+                if choice == "1":
+                    rep.enter_report(user)
+                elif choice == "2":
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+            print("Thank you for using the Weekly Report System!")
             status = False
         else:
             status = True
@@ -55,11 +70,8 @@ elif user_is == "IG":
         result, user, dataset = lgin.guide_login()
         if result:
             if pd.isna(dataset.loc[dataset['User ID'] == user, 'Name'].values[0]):
-                print("You have loged in for the first time\nnYou need to register!")
-                dataset = reg.Guide_registration(user)
-            print() 
-            print("<<Functions Guide>>\nTo view the records of all students: 'View'\nTo view the records of specific students: 'View Student Specific'\nTo see how many students have opted for internship, research, and coursework: 'Type'\nTo see which course has been opted by most students: 'Popular Course'\nTo see which domain has been opted by most students: 'Popular Domain'\nTo see which students have submitted the needed documents: 'Submitted'\nTo make an announcement: 'Announcement'")
-            print()
+                dataset = reg.Guide_registration(user) 
+            print("You can use the following functions:\n'View': To view the records of all students\n'View Student Specific': To view the records of specific students\n'Type': To see how many students have opted for internship, research, and coursework\n'Popular Course': To see which course has been opted by most students\n'Popular Domain': To see which domain has been opted by most students\n'Submitted': To see which students have submitted the needed documents\n'Announcement': To make an announcement")
             status1 = True
             while status1:
                 fun = input("Enter the function:").lower()

@@ -41,9 +41,3 @@ def announce(user):
     guide_data.loc[guide_data['User ID'] == user, 'Announcement'] = announcement
     guide_data.to_csv("Data/Guide_data.csv",index = False)
     return True
-
-
-
-'''
-teahcers can give marks
-'''
