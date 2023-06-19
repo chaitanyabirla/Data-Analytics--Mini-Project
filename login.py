@@ -10,6 +10,7 @@ def student_login():
             stud_Pswd = input("Set Password: ")
             if input("Confirm Password: ") == stud_Pswd:
                 dataset.loc[dataset['User ID'] == user, 'Password'] = stud_Pswd
+                dataset.to_csv("Data/Student_data.csv", index=False)
                 print("Loged In Successfully!")
                 status = True
             else:

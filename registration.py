@@ -1,11 +1,12 @@
 import pandas as pd
 import Data.Dataset as Dataset
 from numpy import NaN
+import pandas as pd
 
-def Guide_registration(userid):
+def guide_registration(userid):
     flag = False
     database = pd.read_csv("Data/Guide_data.csv")
-    database_r = pd.read_csv("Data/Guide_data.csv")
+    #database_r = pd.read_csv("Data/Guide_data.csv")
     datalist = database.values.tolist()
 
     for i in range(len(datalist)):
@@ -21,17 +22,18 @@ def Guide_registration(userid):
 
     if not flag:
         print("Invalid registration number.")
-    database = pd.DataFrame(datalist, columns=['User ID', 'Password','Department', 'Name','Announcement'])
-    appended_data = pd.merge(database_r, database, on='User ID', how='outer')
-    appended_data.to_csv("Data/Guide_data.csv", index=True)
+
+    database = pd.DataFrame(datalist, columns=['User ID', 'Password', 'Name', 'Department', 'Announcement'])
+    database.to_csv("Data/Guide_data.csv", index=False)
     return database
     
 
 def student_registration(regnum):
     flag = False
     database = pd.read_csv("Data/Student_data.csv")
-    database_r = pd.read_csv("Data/Student_data.csv")
+    #database_r = pd.read_csv("Data/Student_data.csv")
     datalist = database.values.tolist()
+
     for i in range(len(datalist)):
         if datalist[i][0] == regnum:
             name = input("Enter your name: ")
@@ -49,10 +51,62 @@ def student_registration(regnum):
 
     if not flag:
         print("Invalid registration number.")
-    database = pd.DataFrame(datalist, columns=['User ID', 'Password','Name','Year','Department', 'Course'])
-    appended_data = pd.merge(database_r, database, on='User ID', how='outer')
-    appended_data.to_csv("Data/Student_data.csv", index=True)
+
+    database = pd.DataFrame(datalist, columns=['User ID', 'Password', 'Name', 'Year', 'Department', 'Course'])
+    database.to_csv("Data/Student_data.csv", index=False)
     return database
+
+# def Guide_registration(userid):
+#     flag = False
+#     database = pd.read_csv("Data/Guide_data.csv")
+#     database_r = pd.read_csv("Data/Guide_data.csv")
+#     datalist = database.values.tolist()
+
+#     for i in range(len(datalist)):
+#         if datalist[i][0] == userid:
+#             name = input("Enter your name: ")
+#             department = input("Enter your department: ")
+
+#             datalist[i][2] = name
+#             datalist[i][3] = department
+
+#             flag = True
+#             break
+
+#     if not flag:
+#         print("Invalid registration number.")
+#     database = pd.DataFrame(datalist, columns=['User ID', 'Password','Department', 'Name','Announcement'])
+#     appended_data = pd.merge(database_r, database, on='User ID', how='outer')
+#     appended_data.to_csv("Data/Guide_data.csv", index=False)
+#     return database
+    
+
+# def student_registration(regnum):
+#     flag = False
+#     database = pd.read_csv("Data/Student_data.csv")
+#     database_r = pd.read_csv("Data/Student_data.csv")
+#     datalist = database.values.tolist()
+#     for i in range(len(datalist)):
+#         if datalist[i][0] == regnum:
+#             name = input("Enter your name: ")
+#             year = int(input("Enter the year you are studying in: "))
+#             course = input("Enter your class (For e.g: 2LLB-A): ")
+#             department = input("Enter your department: ")
+
+#             datalist[i][2] = name
+#             datalist[i][3] = year
+#             datalist[i][4] = department
+#             datalist[i][5] = course
+
+#             flag = True
+#             break
+
+#     if not flag:
+#         print("Invalid registration number.")
+#     database = pd.DataFrame(datalist, columns=['User ID', 'Password','Name','Year','Department', 'Course'])
+#     appended_data = pd.merge(database_r, database, on='User ID', how='outer')
+#     appended_data.to_csv("Data/Student_data.csv", index=False)
+#     return database
 
 def internship(regnum):
     intern_detail_list=[]
@@ -153,14 +207,14 @@ def Reserchwork(regnum):
 def stu_intern(user,database):
     intern_data = internship(user)
     appended_data = pd.merge(database, intern_data, on='User ID', how='outer')
-    appended_data.to_csv("Data/Intern_data.csv", index=True)
+    appended_data.to_csv("Data/Intern_data.csv", index=False)
 
 def stu_course(user,database):
     intern_data = coursework(user)
     appended_data = pd.merge(database, intern_data, on='User ID', how='outer')
-    appended_data.to_csv("Data/Course_data.csv", index=True)
+    appended_data.to_csv("Data/Course_data.csv", index=False)
 
 def stu_reserch(user,database):
     intern_data = Reserchwork(user)
     appended_data = pd.merge(database, intern_data, on='User ID', how='outer')
-    appended_data.to_csv("Data/Reserch_data.csv", index=True)
+    appended_data.to_csv("Data/Reserch_data.csv", index=False)

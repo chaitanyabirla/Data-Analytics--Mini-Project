@@ -31,7 +31,7 @@ def popular_domain():
     return internship_pop_domain, research_pop_domain
 
 def students_submitted():
-    student_data = pd.read_csv("Data/Student_data.csv", index = True)
+    student_data = pd.read_csv("Data/Student_data.csv")
     report_status = input("Enter the report names you want to see the status of: ").split()
     return student_data[report_status]
 
@@ -41,9 +41,3 @@ def announce(user):
     guide_data.loc[guide_data['User ID'] == user, 'Announcement'] = announcement
     guide_data.to_csv("Data/Guide_data.csv",index = False)
     return True
-
-
-
-'''
-teahcers can give marks
-'''
