@@ -14,12 +14,12 @@
 ### Description
 This mini project has been developed by us as part of the course 'Data Analytics with Mini Project' in our 3rd Semester of BSc Economics and Analytics at Christ (Deemed to be University).
 
-This project is a *Summer Internship Portal* to manage the internship for the students at Christ. The portal allows students to log in and enter their personal and academic details. It also enables the guides to monitor and manage the students’ data.  
+This project is a **Summer Internship Portal** to manage the internship for the students at Christ. The portal allows students to log in and enter their personal and academic details. It also enables the guides to monitor and manage the students’ data.  
 
 This portal has been made Menu-based using Python, File Handling to store and access data stored in a csv file and Pandas for data manipulation. It also uses user-defined functions to perform various tasks, such as validating the user input and displaying the menu options. It is designed to be user-friendly, interactive, and secure.
 
 ### Functionality
-This portal provides you two login options: *Student* and *Internship Guide*
+This portal provides you two login options: **Student** and **Internship Guide**
 
 #### Student
 * The students will be first asked to `login` with their User IDs and passwords. If they are logging in for the first time, they will be asked to set a password.
@@ -66,11 +66,19 @@ To run this program, you need to have Python and the following libraries install
 * *pathlib*: This library provides an object-oriented interface for working with file paths.
 * *csv*: This module implements classes to read and write tabular data in CSV format.
 
+### Sample Output
+#### Output for Student 
+* Login function
+  
+![Alt text](Images/image.png)
 
-![Alt text](image.png)
-![Alt text](image2.png)
-![Alt text](image3.png)
+* Registration function
+  
+![Alt text](Images/image2.png)
 
-![Alt text](image4.png)
-![Alt text](image5.png)
-![Alt text](image6.png)
+* Type function
+![Alt text](Images/image3.png)
+
+![Alt text](Images/image4.png)
+![Alt text](Images/image5.png)
+![Alt text](Images/image6.png)
