@@ -33,7 +33,7 @@ This portal provides you two login options: **Student** and **Internship Guide**
 * They will be guided to `functions` menu where they can use pre-defined functions to view and manage the students' data.
 * They can also make announcements which will be visible to the students.
 
-There have been seperate packages created for the different menus for easy and the main code has been saved in the **Main Body.py** file. The datasets have been stored under the **Data** folder in csv files.
+There have been seperate packages created for the different menus for easy and the main code has been saved in the [Main Body.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Main%20Body.py) file. The datasets have been stored under the **Data** folder in csv files.
 
 ### Executing 
 To run this program, you need to have Python 3 and the following libraries installed on your system:
