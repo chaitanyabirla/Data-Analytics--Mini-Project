@@ -16,9 +16,9 @@
 # def generate_student_id():
 #     student_list = []
 #     for i in range(2211200,2211700):
-#        j = [i,NaN,NaN,NaN,NaN,NaN]
+#        j = [i,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]
 #        student_list.append(j)
-#     student_data= pd.DataFrame(student_list, columns=['User ID', 'Password','Name', 'Year', 'Department', 'Course'])
+#     student_data= pd.DataFrame(student_list, columns=['User ID', 'Password','Name', 'Year', 'Department', 'Course','Week 1 Report','Week 2 Report','Week 3 Report','Week 4 Report','Week 5 Report','Week 6 Report','Final Report'])
 #     return student_data,student_list
 # generate_student_id()
 

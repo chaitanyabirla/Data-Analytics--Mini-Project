@@ -33,7 +33,11 @@ def popular_domain():
 def students_submitted():
     student_data = pd.read_csv("Data/Student_data.csv")
     report_status = input("Enter the report names you want to see the status of: ").split()
-    return student_data[report_status]
+    week = input("Enter the week: ")
+    for i in report_status:
+        report_status[i]=int(i)
+    for i in report_status: 
+        return student_data[student_data["User ID"] == i, "Week "+week+" Report"]
 
 def announce(user):
     announcement = input("Please enter your announcement: ")

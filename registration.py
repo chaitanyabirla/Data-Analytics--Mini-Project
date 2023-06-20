@@ -50,7 +50,7 @@ def student_registration(regnum):
     if not flag:
         print("Invalid registration number!")
 
-    database = pd.DataFrame(datalist, columns=['User ID', 'Password', 'Name', 'Year', 'Department', 'Course'])
+    database = pd.DataFrame(datalist, columns=['User ID', 'Password', 'Name', 'Year', 'Department', 'Course','Week 1 Report','Week 2 Report','Week 3 Report','Week 4 Report','Week 5 Report','Week 6 Report','Final Report'])
     database.to_csv("Data/Student_data.csv", index=False)
     return database
 

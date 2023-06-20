@@ -52,21 +52,23 @@ if user_is == "STUD":
             print("<<Weekly Report Guide>>\nTo Submit: 'y'\nTo Exit: 'n'")
             print()
 
-            submit = input("Do you want to submit your weekly reports? ").lower()
+            submit = input("Do you want to submit your Weekly Reports? ").lower()
             print()
 
             if submit == 'y':
                 while True:
-                    print("<<Submission Guide>>\nTo Enter Report: '1'\nTo Exit: '2'")
-                    print()
-                    choice = input("Enter your choice: ")
-                    if choice == "1":
-                        rep.enter_report(user)
-                    elif choice == "2":
+                    rep.weekly_report(user) 
+                    break
+
+            if not pd.isna(dataset.loc[dataset['User ID'] == user, 'Week 6 Report'].values[0]):      
+                submit = input("Do you want to submit your Final Reports? ").lower()
+                print()
+
+                if submit == 'y':
+                    while True:
+                        rep.final_report(user)
                         break
-                    else:
-                        print("Invalid choice\nPlease try again!")
-            
+                
             print('*'*55)
             print(f"{'Thank you for using the Summer Internship Portal!' : ^55}")
             print('*'*55)
