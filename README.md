@@ -3,13 +3,13 @@
 ## Summer Internship Portal
 
 ### Collaborators
-* Chaitanya Birla (Reg No 22112312)
+* [Chaitanya Birla](https://github.com/chaitanyabirla)  (Reg No 22112312)
   
-  https://github.com/chaitanyabirla
+  
 
-* Kanishk Saleria (Reg No 22112317)
+* [Kanishk Saleria](https://github.com/kanishksaleria)  (Reg No 22112317)
   
-  https://github.com/kanishksaleria
+  
 
 ### Description
 This mini project has been developed by us as part of the course 'Data Analytics with Mini Project' in our 3rd Semester of BSc Economics and Analytics at Christ (Deemed to be University).
@@ -34,3 +34,19 @@ This portal provides you two login options: **Student** and **Internship Guide**
 * They can also make announcements which will be visible to the students.
 
 There have been seperate packages created for the different menus for easy and the main code has been saved in the **Main Body.py** file. The datasets have been stored under the **Data** folder in csv files.
+
+### Executing 
+To run this program, you need to have Python 3 and the following libraries installed on your system:
+
+* **pandas**: This library provides high-performance data structures and tools for data analysis.
+* **pathlib**: This library provides an object-oriented interface for working with file paths.
+* **csv**: This module implements classes to read and write tabular data in CSV format.
+#### Project Structure
+Make sure your project directory has the following files:
+
+- `login.py`: This module contains the functions for student and guide login.
+- `registration.py`: This module contains the functions for student and guide registration, also for internship, reserchwork and coursework.
+- `guide.py`: This module contains the functions for guide operations.
+- `report.py`: This module contains the functions for student report submission.
+- `Data/Student_data.csv`: This file contains the data of the students.
+- `Data/Guide_data.csv`: This file contains the data of the guides.
