@@ -1,4 +1,3 @@
-import Data.Dataset as Dataset
 import pandas as pd
 
 def view_dataset():
@@ -34,10 +33,13 @@ def students_submitted():
     student_data = pd.read_csv("Data/Student_data.csv")
     report_status = input("Enter the report names you want to see the status of: ").split()
     week = input("Enter the week: ")
+    report_statu = []
     for i in report_status:
-        report_status[i]=int(i)
-    for i in report_status: 
-        return student_data[student_data["User ID"] == i, "Week "+week+" Report"]
+        report_statu.append(int(i))
+    result = []
+    for i in report_statu: 
+        result.append(student_data[student_data["User ID"] == i, "Week "+week+" Report"])
+    return result
 
 def announce(user):
     announcement = input("Please enter your announcement: ")
