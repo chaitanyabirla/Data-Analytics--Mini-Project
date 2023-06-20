@@ -59,9 +59,9 @@ This portal provides you two login options: **Student** and **Internship Guide**
   
 ### Pre-requisites 
 To run this program, you need to have Python and the following libraries installed on your system:
-* *pandas*: This library provides high-performance data structures and tools for data analysis.
-* *pathlib*: This library provides an object-oriented interface for working with file paths.
-* *csv*: This module implements classes to read and write tabular data in CSV format.
+* **pandas**: This library provides high-performance data structures and tools for data analysis.
+* **pathlib**: This library provides an object-oriented interface for working with file paths.
+* **csv**: This module implements classes to read and write tabular data in CSV format.
 
 ### Sample Output
 #### Output for Student 
