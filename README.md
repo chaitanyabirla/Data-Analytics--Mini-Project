@@ -14,12 +14,12 @@
 ### Description
 This mini project has been developed by us as part of the course 'Data Analytics with Mini Project' in our 3rd Semester of BSc Economics and Analytics at Christ (Deemed to be University).
 
-This project is a **Summer Internship Portal** to manage the internship for the students at Christ. The portal allows students to log in and enter their personal and academic details. It also enables the guides to monitor and manage the students’ data.  
+This project is a *Summer Internship Portal* to manage the internship for the students at Christ. The portal allows students to log in and enter their personal and academic details. It also enables the guides to monitor and manage the students’ data.  
 
 This portal has been made Menu-based using Python, File Handling to store and access data stored in a csv file and Pandas for data manipulation. It also uses user-defined functions to perform various tasks, such as validating the user input and displaying the menu options. It is designed to be user-friendly, interactive, and secure.
 
 ### Functionality
-This portal provides you two login options: **Student** and **Internship Guide**
+This portal provides you two login options: *Student* and *Internship Guide*
 
 #### Student
 * The students will be first asked to `login` with their User IDs and passwords. If they are logging in for the first time, they will be asked to set a password.
@@ -33,20 +33,44 @@ This portal provides you two login options: **Student** and **Internship Guide**
 * They will be guided to `functions` menu where they can use pre-defined functions to view and manage the students' data.
 * They can also make announcements which will be visible to the students.
 
-There have been seperate packages created for the different menus for easy and the main code has been saved in the **Main Body.py** file. The datasets have been stored under the **Data** folder in csv files.
+### Packages Developed
+* There have been seperate packages created for the different menus for ease. They are:
+  * [login.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/login.py)
 
-### Executing 
-To run this program, you need to have Python 3 and the following libraries installed on your system:
+    This module contains the functions for student and guide login.
+  * [registration.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/registration.py)
+  
+    This module contains the functions for student and guide registration, also for internship, reserchwork and coursework.
+  * [guide.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/guide.py)
 
-* **pandas**: This library provides high-performance data structures and tools for data analysis.
-* **pathlib**: This library provides an object-oriented interface for working with file paths.
-* **csv**: This module implements classes to read and write tabular data in CSV format.
-#### Project Structure
-Make sure your project directory has the following files:
+    This module contains the functions for guide operations.
+  * [report.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/report.py)
 
-- `login.py`: This module contains the functions for student and guide login.
-- `registration.py`: This module contains the functions for student and guide registration, also for internship, reserchwork and coursework.
-- `guide.py`: This module contains the functions for guide operations.
-- `report.py`: This module contains the functions for student report submission.
-- `Data/Student_data.csv`: This file contains the data of the students.
-- `Data/Guide_data.csv`: This file contains the data of the guides.
+    This module contains the functions for student report submission. 
+* [Main Body.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Main%20Body.py)
+
+  The main code has been saved in this file.
+* [Data](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/tree/main/Data)
+
+  The datasets have been stored under this folder in csv files.
+  * [Data/Student_data.csv](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Data/Student_data.csv)
+
+    This file contains the data of the students.
+  * [Data/Guide_data.csv](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Data/Guide_data.csv)
+  
+    This file contains the data of the guides.
+  
+### Pre-requisites 
+To run this program, you need to have Python and the following libraries installed on your system:
+* *pandas*: This library provides high-performance data structures and tools for data analysis.
+* *pathlib*: This library provides an object-oriented interface for working with file paths.
+* *csv*: This module implements classes to read and write tabular data in CSV format.
+
+
+![Alt text](image.png)
+![Alt text](image2.png)
+![Alt text](image3.png)
+
+![Alt text](image4.png)
+![Alt text](image5.png)
+![Alt text](image6.png)
