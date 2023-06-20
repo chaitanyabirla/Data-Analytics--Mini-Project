@@ -63,6 +63,9 @@ To run this program, you need to have Python and the following libraries install
 * **pathlib**: This library provides an object-oriented interface for working with file paths.
 * **csv**: This module implements classes to read and write tabular data in CSV format.
 
+### Algorithm Flow
+
+
 ### Sample Output
 #### Output for Student 
 * Login function
