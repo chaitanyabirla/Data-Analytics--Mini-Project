@@ -5,11 +5,7 @@
 ### Collaborators
 * [Chaitanya Birla](https://github.com/chaitanyabirla)  (Reg No 22112312)
   
-  
-
 * [Kanishk Saleria](https://github.com/kanishksaleria)  (Reg No 22112317)
-  
-  
 
 ### Description
 This mini project has been developed by us as part of the course 'Data Analytics with Mini Project' in our 3rd Semester of BSc Economics and Analytics at Christ (Deemed to be University).
@@ -59,6 +55,7 @@ This portal provides you two login options: **Student** and **Internship Guide**
   * [Data/Guide_data.csv](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Data/Guide_data.csv)
   
     This file contains the data of the guides.
+  * The rest of the csv files will be created as you run the code.
   
 ### Pre-requisites 
 To run this program, you need to have Python and the following libraries installed on your system:
@@ -76,9 +73,19 @@ To run this program, you need to have Python and the following libraries install
   
 ![Alt text](Images/image2.png)
 
-* Type function
+* Report function
+  
 ![Alt text](Images/image3.png)
 
+#### Output for Internship Guide
+* Login function
+  
 ![Alt text](Images/image4.png)
+
+* Registration function
+  
 ![Alt text](Images/image5.png)
+
+* Guide's function
+  
 ![Alt text](Images/image6.png)
