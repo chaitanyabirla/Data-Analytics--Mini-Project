@@ -33,4 +33,4 @@ This portal provides you two login options: **Student** and **Internship Guide**
 * They will be guided to `functions` menu where they can use pre-defined functions to view and manage the students' data.
 * They can also make announcements which will be visible to the students.
 
-There have been 
+There have been seperate packages created for the different menus for easy and the [main code has been saved in this file](/Main Body.py)
