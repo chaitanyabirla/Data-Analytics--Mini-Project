@@ -64,11 +64,11 @@ To run this program, you need to have Python and the following libraries install
 * **csv**: This module implements classes to read and write tabular data in CSV format.
 
 ### Algorithm Flow
-
+![Alt text](Images/projectflow.drawio.png)
 
 ### Sample Output
 #### Output for Student 
-* Login function
+* Welcome prompt + Login function
   
 ![Alt text](Images/image.png)
 
@@ -76,7 +76,7 @@ To run this program, you need to have Python and the following libraries install
   
 ![Alt text](Images/image2.png)
 
-* Report function
+* Report function + Exit Prompt
   
 ![Alt text](Images/image3.png)
 
