@@ -29,8 +29,12 @@ This portal provides you two login options: **Student** and **Internship Guide**
 * They will be guided to `functions` menu where they can use pre-defined functions to view and manage the students' data.
 * They can also make announcements which will be visible to the students.
 
-### Packages Developed
-* There have been seperate packages created for the different menus for ease. They are:
+### Modules Developed
+* [Main Body.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Main%20Body.py)
+
+  The main body of the code has been saved in this file. In order to access the portal, run this module.
+  
+* There have been seperate modules created for the different menus for ease. They are:
   * [login.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/login.py)
 
     This module contains the functions for student and guide login.
@@ -43,19 +47,19 @@ This portal provides you two login options: **Student** and **Internship Guide**
   * [report.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/report.py)
 
     This module contains the functions for student report submission. 
-* [Main Body.py](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Main%20Body.py)
 
-  The main code has been saved in this file.
+### Data
+
 * [Data](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/tree/main/Data)
 
   The datasets have been stored under this folder in csv files.
-  * [Data/Student_data.csv](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Data/Student_data.csv)
+* [Data/Student_data.csv](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Data/Student_data.csv)
 
-    This file contains the data of the students.
-  * [Data/Guide_data.csv](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Data/Guide_data.csv)
+  This file contains the data of the students.
+* [Data/Guide_data.csv](https://github.com/kanishksaleria/Data-Analytics--Mini-Project/blob/main/Data/Guide_data.csv)
   
-    This file contains the data of the guides.
-  * The rest of the csv files will be created as you run the code.
+  This file contains the data of the guides.
+* The rest of the csv files will be created as you run the code.
   
 ### Pre-requisites 
 To run this program, you need to have Python and the following libraries installed on your system:
